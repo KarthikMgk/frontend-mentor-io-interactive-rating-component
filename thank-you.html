@@ -20,9 +20,23 @@
 <body>
 
   <div class="absolute base-component bg-black h-screen w-full">
-    <div class="relative rating-component bg-[#161B20] h-[50vh] w-[50vh] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-xl flex flex-col">
-      <div class="thankyou-component bg-[#1C2025] m-5 flex items-center justify-center">
+    <div class="relative rating-component bg-[#161B20] h-[40vh] w-[50vh] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-xl flex flex-col">
+      <div class="thankyou-component bg-[#161B20] m-5 flex items-center justify-center">
         <img class="w-15 h-15" src="./interactive-rating-component-main/images/illustration-thank-you.svg" alt="" srcset="">
+      </div>
+      <div class="thankyou-text-component flex flex-col m-5 mt-[0px] items-center text-center">
+        <p class="text-sm rounded-full text-orange-500 px-4 py-1 w-fit bg-[#292E37]">
+            You selected 
+            <span class= id="selected-rating">
+                0
+            </span> 
+            out of 5
+        </p>
+        <div class="mt-10 text-2xl font-bold text-white">Thank You!</div>
+        <div class="thanks-desc opacity-50 text-white text-sm mt-5">
+              We appreciate you taking the time to give a rating. If you ever need more support, 
+                don’t hesitate to get in touch!
+        </div>
       </div>
 
     </div>
@@ -37,8 +51,7 @@
 
   Thank you!
 
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
+
 
   <!-- Thank you state end -->
 
