@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="absolute base-component bg-black h-screen w-full">
+    <div class="relative rating-component bg-[#161B20] h-[50vh] w-[50vh] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-xl flex flex-col">
+      <div class="star-component bg-[#1C2025] rounded-full h-8 w-8 m-5 flex items-center justify-center">
+        <img class="w-5 h-5" src="./interactive-rating-component-main/images/icon-star.svg" alt="" srcset="">
+      </div>
+      <div class="survey-text-component flex flex-col m-5 mt-[0px]">
+        <p class="font-bold text-white text-2xl tracking-[1px]">How did we do?</p>
+        <p class="opacity-50 text-md tracking-[0.5px] text-white mt-5">
+          Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+        <div class="rating-buttons grid-grid-cols-5 justify-between mt-5 text-white">
+          <button class="bg-[#1C2025] h-[6vh] w-[6vh] m-2 rounded-full">1</button>
+          <button class="bg-[#1C2025] h-[6vh] w-[6vh] m-2 rounded-full">2</button>
+          <button class="bg-[#1C2025] h-[6vh] w-[6vh] m-2 rounded-full">3</button>
+          <button class="bg-[#1C2025] h-[6vh] w-[6vh] m-2 rounded-full">4</button>
+          <button class="bg-[#1C2025] h-[6vh] w-[6vh] m-2 rounded-full">5</button>
+
+        </div>
+        <button onclick="handleSubmit(event)" class="submit-button w-full h-[6vh] bg-orange-600 rounded-3xl mt-5 tracking-[1px]">SUBMIT</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Rating state start -->
+
+  How did we do?
+
+  Please let us know how we did with your support request. All feedback is appreciated 
+  to help us improve our offering!
+
+  1 2 3 4 5
+
+  Submit
+
+  <!-- Rating state end -->
+
+  <!-- Thank you state start -->
+
+  You selected <!-- Add rating here --> out of 5
+
+  Thank you!
+
+  We appreciate you taking the time to give a rating. If you ever need more support, 
+  don’t hesitate to get in touch!
+
+  <!-- Thank you state end -->
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+
+<script>
+
+  let selectedRating;
+
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevents any default behavior if needed
+    localStorage.setItem("selectedRating", selectedRating);
+    console.log('Submit clicked', event); // Logs the event object
+    window.location.href = 'thank-you.html'
+  }
+
+
+  function handleRatingClick(event) {
+    // Reset all buttons to their original background color
+    document.querySelectorAll('.rating-buttons button').forEach(button => {
+      button.style.backgroundColor = "#1B2025"; // Reset color
+      button.style.color = "white"; // Reset text color
+    });
+
+    // Change the background of the clicked button
+    event.target.style.backgroundColor = "white";
+    event.target.style.color = "black"; // Optional: Change text color for better visibility
+    selectedRating = event.target.textContent
+    console.log(selectedRating)
+  }
+
+  // Attach event listeners to all rating buttons
+  document.querySelectorAll('.rating-buttons button').forEach(button => {
+    button.addEventListener('click', handleRatingClick);
+  });
+  
+</script>
+
+</body>
+</html>
